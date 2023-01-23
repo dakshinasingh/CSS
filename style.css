@@ -1,0 +1,165 @@
+/* syntax
+
+selector{
+    property:value;
+} */
+
+/* element selector */
+/* p{
+    color: red;
+    background-color: antiquewhite;
+} */
+
+/* id selector */
+/* #red{
+    color: blue;
+    background-color: red;
+} */
+
+
+/* class selector */
+/* .para{
+color: orange;
+} */
+
+/* backgrounds */
+
+body{
+    /* background-color: aqua; */
+    /* background-image: url(img1.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* if we scroll the page, then the backgound remains fixed. */
+    background-attachment: fixed;
+}
+.border{
+    border-style: solid;
+    border-width: 2px;
+    border-color: brown;
+
+    /* border shortcut */
+    border: 2px solid rgb(24, 23, 23);
+    border-radius: 4px;
+}
+
+/* margin and padding */
+
+.class{
+    margin: 20px;
+    border: 2px solid red;
+    height: 100px;
+    margin: collapse;
+    padding: 20px;
+
+    /* fonts */
+
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 20px;
+    /* sixes can be given in px,em or % */
+    /* 1em=16px */
+    font-size: 1.8vw;
+
+}
+
+/* text formatting*/
+.class{
+    color: red;
+    text-align: center;
+    
+}
+.class a{
+    text-decoration: line-through;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    word-spacing: 10px;
+    text-shadow: 2px 2px 2px black;
+    color: rgb(233, 25, 129);
+}
+
+/* link formatting */
+.items{
+    background-color: black;
+    padding: 20px;
+}
+.item{
+    list-style-type: none;
+    display: inline;
+}
+.item a{
+    color:white;
+    text-decoration: none;
+    padding: 20px;
+}
+.item a:hover{
+    color: black;
+    background-color: rgb(155, 84, 84);
+}
+.item a:active{
+    color: green
+}
+
+.nav{
+    list-style-type: none;
+}
+
+/* visibility and display */
+.class1{
+   
+    visibility: hidden;  /* space remains */
+
+    display: none;  /* space also hides */
+}
+
+/* position */
+
+/* .class{
+    position: relative;
+    position: fixed;
+    position: absolute;
+    top: 80px;
+    right: 80px;
+} */
+
+
+/* float */
+
+.box{
+    border: 2px solid black;
+    height: 80px;
+    padding: 20px;
+}
+.box1{
+    border: 2px solid black;
+    height: 80px;
+    width: 40%;
+    display: inline-block;
+}
+.box2{
+    border: 2px solid black;
+    height: 80px;
+    width: 40%;
+    float: right;
+}
+
+/* flexbox */
+.flex{
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* center horizontally in flex box */
+    justify-content: center;
+    /* center vertically in flex box */
+    height: 300px;
+    align-items: center;
+}
+.flex >div{
+    background-color: red;
+    padding: 10px;
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+    
+}
