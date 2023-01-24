@@ -1,0 +1,40 @@
+// defining variables
+
+@items-background: rgb(233, 150, 73);
+@basic:rgb(243, 206, 181);
+@t-width:800px;
+@t-height:200px;
+
+@t-border:2px solid black;
+@i-border:1px solid rgb(70, 4, 4);
+@head-font:'Gill Sans MT';
+@l:20px;
+@p:20px;
+// using variables
+body{
+    background-color: @basic;
+}
+.outline{
+    width:@t-width;
+    height:@t-height;
+    border: @t-border;
+}
+.item{
+    border: @i-border;
+    padding: @p;
+}
+
+// nesting of elements
+thead{
+    background-color: rgb(173, 77, 42);
+    tr{
+        font-family:@head-font;
+        font-size: @l;
+    }
+}
+
+//mixing
+tbody{
+    background-color: @items-background;
+    // thead();
+}
