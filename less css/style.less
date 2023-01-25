@@ -2,15 +2,22 @@
 
 @items-background: rgb(233, 150, 73);
 @basic:rgb(243, 206, 181);
-@t-width:800px;
 @t-height:200px;
+@primary:black;
+
+//operations on variables
+@t-width:@t-height+800px;
 
 @t-border:2px solid black;
 @i-border:1px solid rgb(70, 4, 4);
-@head-font:'Gill Sans MT';
-@l:20px;
-@p:20px;
+@head-font:Georgia, 'Times New Roman', Times, serif;
+@radius:10px;
+@l:40px;
+@m:30px;
+@s:20px;
+
 // using variables
+
 body{
     background-color: @basic;
 }
@@ -21,7 +28,7 @@ body{
 }
 .item{
     border: @i-border;
-    padding: @p;
+    padding: @s;
 }
 
 // nesting of elements
@@ -29,12 +36,85 @@ thead{
     background-color: rgb(173, 77, 42);
     tr{
         font-family:@head-font;
-        font-size: @l;
+        font-size: @m;
+        
     }
 }
 
-//mixing
-tbody{
+//extends
+tbody:extend(thead){
+    text-align: center;
     background-color: @items-background;
-    // thead();
 }
+
+//mixins
+// .bordered{
+//     border: 2px solid black;
+//     box-shadow: 2px 2px 4px black;
+// }
+.heading{
+    border: none;
+    font-size: @m;
+    font-weight: 800;
+    padding: @s;
+}
+
+//mixins=functions
+.bordered(@radius){
+    border-radius:@radius;
+}
+.para{
+    border:@i-border;
+    .bordered(@radius);
+    padding: @s;
+}
+.para2{
+    .para();
+}
+
+// &.para2{
+//     // .bordered();
+// }
+.para, .para2{
+    color: red;
+    // text-shadow: 2px 2px 2px black;
+
+}
+
+//using nesting with &
+
+ul{
+    display: flex;
+
+    //using less functions
+    background-color: lighten(@primary,20%);
+    list-style-type: none;
+    li{
+        padding: @s;
+        a{
+            color: white;
+            text-decoration: none;
+            margin: @s;
+            padding: @s @l;
+            border-radius: @s;
+            &:hover{
+                background-color: white;
+                color:@primary;
+            }
+        }
+    }
+}
+
+//namespace and accessors
+.paragraph {
+    .para2 {
+       .val(@param) {
+          font-size: @l;
+          color:green;
+       }
+    }
+ }
+ 
+ .paragraph {
+    .paragraph > .para2 > .val(40px);
+ }
